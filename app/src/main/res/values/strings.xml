@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Zupa</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="name">Nama</string>
+    <string name="nik">NIK</string>
+    <string name="nkk">No. KK</string>
+    <string name="telp">No. HP</string>
+    <string name="repass">Masukkan ulang password</string>
+</resources>
