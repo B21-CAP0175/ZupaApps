@@ -1,10 +1,27 @@
 <resources>
     <string name="app_name">Zupa</string>
+
     <string name="email">Email</string>
     <string name="pass">Password</string>
+
     <string name="name">Nama</string>
     <string name="nik">NIK</string>
     <string name="nkk">No. KK</string>
     <string name="telp">No. HP</string>
     <string name="repass">Masukkan ulang password</string>
+
+    <string name="form">Form Pengaduan</string>
+    <string name="lokasi">Lokasi kejadian</string>
+    <string name="tanggal_kejadian">Tanggal kejadian</string>
+    <string name="waktu">Waktu kejadian</string>
+    <string name="tipe_kejahatan">Tipe kejahatan</string>
+    <string name="detai_jekadian">Detail kejadian</string>
+    <string name="nukti_kejahatan">Bukti kejahatan</string>
+    <string name="loc_file_kejadian">file address</string>
+    <string name="share_bukti">Bukti kekerasan </string>
+
+    <string name="kejahatan_1">Penculikan</string>
+    <string name="kejahatan_2">Pemerkosaan</string>
+    <string name="kejahatan_3">KDRT</string>
+    <string name="kejahatan_4">Bullying</string>
 </resources>

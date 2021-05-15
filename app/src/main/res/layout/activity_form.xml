@@ -6,4 +6,184 @@
     android:layout_height="match_parent"
     tools:context=".formActivity">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="31dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/back_button_form"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/left_arrow"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/form_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/form"
+                android:textSize="30sp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@id/back_button_form"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/form_lokasi"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/form_title"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="12dp"
+                android:hint="@string/lokasi"
+                app:shapeAppearance="@style/Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_form_lokasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/form_tanggal"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/form_lokasi"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="12dp"
+                android:hint="@string/tanggal_kejadian"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_baseline_calendar_today_24"
+                app:shapeAppearance="@style/Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_form_tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/form_waktu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/form_tanggal"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="12dp"
+                android:hint="@string/waktu"
+                app:endIconMode="custom"
+                app:endIconDrawable="@drawable/ic_baseline_access_time_24"
+                app:shapeAppearance="@style/Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_form_waktu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/form_kejadian"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="12dp"
+                android:layout_below="@id/form_waktu"
+                app:shapeAppearance="@style/Rounded"
+                android:hint="@string/tipe_kejahatan">
+
+                <AutoCompleteTextView
+                    android:id="@+id/text_input_form_kejadian"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/form_detail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/form_kejadian"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="12dp"
+                android:hint="@string/detai_jekadian"
+
+                app:shapeAppearance="@style/Rounded">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_form_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:minLines="6"
+                    android:maxLines="15"
+                    android:gravity="top|left"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/bukti_kekerasan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share_bukti"
+                android:layout_below="@id/form_detail"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="12dp"
+                android:layout_toStartOf="@id/button_form_upload"
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="30dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_form_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/form_detail"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="30dp"
+                android:background="@android:color/transparent"
+                android:textColor="@color/pink"
+                android:text="upload"
+                app:cornerRadius="13dp"
+                android:textStyle="normal"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_form_upload"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="send"
+                app:cornerRadius="13dp"
+                android:textStyle="normal"/>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
