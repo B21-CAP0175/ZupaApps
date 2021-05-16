@@ -24,4 +24,22 @@
     <string name="kejahatan_2">Pemerkosaan</string>
     <string name="kejahatan_3">KDRT</string>
     <string name="kejahatan_4">Bullying</string>
+    <string name="hello">Hello</string>
+    <string name="zanna_kirana">Zanna Kirana</string>
+    <string name="jl_antasari_jakarta_selatan">Jl. Antasari, Jakarta Selatan</string>
+    <string name="zupa_tips_today">Zupa Tips Today</string>
+    <string name="Zupatips">selalu beri kabar orang terdekat ketika hendak berpergian</string>
+    <string name="show_more_tips">SHOW MORE TIPS</string>
+    <string name="button_home">Home</string>
+    <string name="button_form">Form</string>
+    <string name="button_history">History</string>
+    <string name="button_profile">Profile</string>
+    <string name="placeholder">placeholder</string>
+    <string name="no_id">No. Id</string>
+    <string name="no_kk">No. KK</string>
+    <string name="no_hp">No. Hp</string>
+    <string name="change_picture">Change Picture</string>
+    <string name="save">Save</string>
+    <string name="log_in">Log in</string>
+    <string name="buat_akun">Buat Akun</string>
 </resources>

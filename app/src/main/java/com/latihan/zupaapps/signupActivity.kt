@@ -11,11 +11,8 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_signup)
     }
 
-    override fun onClick(v: View) {
-        when(v.id){
-            R.id.back_button_signup->{
-                startActivity(Intent(this@signupActivity, loginActivity::class.java))
-            }
-        }
+    override fun onClick(v: View?) {
+        TODO("Not yet implemented")
     }
+
 }
