@@ -20,10 +20,14 @@
     <string name="loc_file_kejadian">file address</string>
     <string name="share_bukti">Bukti kekerasan </string>
 
-    <string name="kejahatan_1">Penculikan</string>
-    <string name="kejahatan_2">Pemerkosaan</string>
-    <string name="kejahatan_3">KDRT</string>
-    <string name="kejahatan_4">Bullying</string>
+    <string-array name="tipeKejahatan">
+        <item>Penculikan</item>
+        <item>Penganiayaan</item>
+        <item>Pemekorsaan</item>
+        <item>Bullying</item>
+        <item>KDRT</item>
+    </string-array>
+
     <string name="hello">Hello</string>
     <string name="zanna_kirana">Zanna Kirana</string>
     <string name="jl_antasari_jakarta_selatan">Jl. Antasari, Jakarta Selatan</string>
