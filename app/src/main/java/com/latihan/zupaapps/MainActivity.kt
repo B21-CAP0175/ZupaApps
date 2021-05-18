@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
 
+        val Form = findViewById<View>(R.id.mbFrom)
+        Form.setOnClickListener(){
+            startActivity(Intent(this,formActivity::class.java))
+        }
+
     }
 
 }

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
@@ -30,6 +31,7 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
     private lateinit var lTipeKejadian: TextInputLayout
 
     private lateinit var btnSend: Button
+    private lateinit var bckButton: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +52,9 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
 
         btnSend = findViewById(R.id.button_send)
         btnSend.setOnClickListener(this)
+
+        bckButton = findViewById(R.id.back_button_form)
+        bckButton.setOnClickListener(this)
 
         //DATE PICKER TANGGAL KEJADIAN
         val datePicker = MaterialDatePicker.Builder.datePicker()
@@ -88,10 +93,9 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
 
     override fun onClick(v: View) {
         when(v.id){
-            R.id.form_tanggal -> {
-
+            R.id.back_button_form -> {
+                finish()
             }
-
         }
     }
 }
