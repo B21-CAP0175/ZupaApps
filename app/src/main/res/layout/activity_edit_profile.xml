@@ -31,17 +31,18 @@
                 android:layout_marginEnd="100dp"
                 app:srcCompat="@drawable/profile_picture" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/editProfile"
-                android:layout_width="120dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="@color/black"
                 android:text="@string/change_picture"
-                android:textSize="7sp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                app:cornerRadius="13dp"
                 android:layout_below="@+id/imageView"
+
                 android:backgroundTint="@color/white"/>
 
             <LinearLayout

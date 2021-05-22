@@ -24,5 +24,4 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-
 }
