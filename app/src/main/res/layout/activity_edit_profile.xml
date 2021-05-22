@@ -55,70 +55,72 @@
                 android:layout_marginEnd="20dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NoIdTextField"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/no_id"
-                    app:shapeAppearance="@style/Rounded">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_NoId"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NoKKTextField"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/no_kk"
-                    android:layout_below="@+id/NoIdTextField"
-                    app:shapeAppearance="@style/Rounded">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_NoKK"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NoHandphone"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/no_hp"
-                    android:layout_below="@+id/NoKKTextField"
-                    app:shapeAppearance="@style/Rounded">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_NoHp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/Email_Text_field"
+                    android:id="@+id/editEmail"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:hint="@string/email"
+                    app:shapeAppearance="@style/Rounded">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_editEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editNomorHP"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="@string/no_hp"
+                    android:layout_below="@+id/NoIdTextField"
+                    app:shapeAppearance="@style/Rounded">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_editNoHP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editPass"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="@string/pass"
+                    android:layout_below="@+id/NoKKTextField"
+                    app:endIconMode="password_toggle"
+                    app:shapeAppearance="@style/Rounded">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/text_input_editPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editRepass"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:hint="@string/repass"
+                    app:endIconMode="password_toggle"
                     android:layout_below="@+id/NoHandphone"
                     app:shapeAppearance="@style/Rounded">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_Email"
+                        android:id="@+id/text_input_editRepass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"/>
@@ -133,6 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/TextFieldRow"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:text="@string/save"
                 app:cornerRadius="13dp"
                 android:textStyle="normal"/>
