@@ -26,35 +26,38 @@
                 android:layout_height="40dp"
                 android:src="@drawable/bicara"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="5dp"
-                android:alpha="0"/>
+                android:layout_marginBottom="5dp" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <ImageView
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_form"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/contract"
+                    android:background="@drawable/contract"
                     android:layout_marginEnd="35dp"
                     android:layout_centerVertical="true"/>
 
-                <ImageView
-                    android:id="@+id/btn_sos"
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSOS"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@drawable/sos_button"
                     android:elevation="5dp"
+                    android:text="SOS"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:textSize="31sp"
+                    app:cornerRadius="150dp"
                     android:layout_toEndOf="@id/btn_form"/>
 
-                <ImageView
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_history"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:src="@drawable/history"
-                    android:layout_toEndOf="@id/btn_sos"
+                    android:background="@drawable/history"
+                    android:layout_toEndOf="@id/btnSOS"
                     android:layout_marginStart="35dp"
                     android:layout_centerVertical="true"/>
 
@@ -69,11 +72,12 @@
         android:paddingLeft="25dp"
         android:paddingRight="25dp">
 
-        <ImageView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_log_out"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:src="@drawable/log_out_putih"
+            android:background="@drawable/log_out_putih"
+            app:backgroundTint="@color/white"
             android:layout_marginTop="15dp"
             android:layout_alignParentEnd="true"/>
 
