@@ -88,29 +88,91 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
         return true
     }
 
-    private fun validateNoHP(){
-        regNoHP = findViewById(R.id.text_input_signup_nama)
+    private fun validateNoHP(): Boolean{
+        regNoHP = findViewById(R.id.text_input_signup_nohp)
+
+        val currentNoHp:String = regNoHP.text.toString()
+        val lengthNoHp:Int = 12
+
+        if (currentNoHp.isEmpty()){
+            regNoHP.setError("No.Hp tidak boleh kosong")
+            return false
+        }
+        else if(currentNoHp.length <= lengthNoHp){
+            regNoHP.setError("Panjang maksimal No.Hp adalah 12 angka")
+            return false
+        }
+        else {
+            regNoHP.setError(null)
+            return true
+        }
+        return true
     }
 
-    private fun validateEmail(){
-        regEmail = findViewById(R.id.text_input_signup_nama)
+    private fun validateEmail(): Boolean{
+        regEmail = findViewById(R.id.text_input_signup_email)
+        val emailPattern:String = "[a-zA-Z0-9._-]\\+@[a-z]+\\.+[a-z]+"
+        val currentEmail:String = regEmail.text.toString()
+
+        if (currentEmail.isEmpty()){
+            regEmail.setError("Email tidak boleh kosong")
+            return false
+        }
+        else if(!currentEmail.contains(emailPattern)){
+            regEmail.setError("Email tidak valid")
+            return false
+        }
+        else {
+            regEmail.setError(null)
+            return true
+        }
+        return true
     }
 
-    private fun validatePass(){
-        regPass = findViewById(R.id.text_input_signup_nama)
+    private fun validatePass(): Boolean{
+        regPass = findViewById(R.id.text_input_signup_pass)
+        val currentPass:String = regPass.text.toString()
+
+        if (currentPass.isEmpty()){
+            regPass.setError("Pssword tidak boleh kosong")
+            return false
+        }
+        else {
+            regPass.setError(null)
+            return true
+        }
+        return true
     }
 
-    private fun validateRePass(){
-        regRePass = findViewById(R.id.text_input_signup_nama)
+    private fun validateRePass(): Boolean{
+        regRePass = findViewById(R.id.text_input_signup_repass)
+        regPass = findViewById(R.id.text_input_signup_pass)
+
+        val currentRePass:String = regRePass.text.toString()
+        val currentPass:String = regPass.text.toString()
+
+        if (currentRePass.isEmpty()){
+            regRePass.setError("Password tidak boleh kosong")
+            return false
+        }
+        else if(currentRePass != currentPass){
+            regRePass.setError("Password tidak sama")
+            return false
+        }
+        else {
+            regRePass.setError(null)
+            return true
+        }
+        return true
     }
 
-    override fun onClick(v: View) {
+    override fun onClick(v: View){
         when(v.id){
             R.id.back_button_signup -> {
                 finish()
             }
             R.id.button_signup -> {
-                if (!validateNama() or !validateNIK() or !validateNoKK()) {
+                if (!validateNama() or !validateNIK() or !validateNoKK() or !validateNoHP() or !validateEmail() or !validatePass() or !validateRePass()) {
                     return
                 }
                 else{
