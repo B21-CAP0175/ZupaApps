@@ -10,19 +10,24 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import java.text.Normalizer
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener {
     private lateinit var profilePic: ImageView
     private lateinit var btnSOS: Button
     private lateinit var recordNotif: ImageView
+    private lateinit var formButton: Button
+    private lateinit var historyButton: Button
+    private lateinit var logoutButton: Button
 
-    private var AUDIO_RECORDER_FILE_EXT_OGG:String=".ogg"
+/*    private var AUDIO_RECORDER_FILE_EXT_OGG:String=".ogg"
     private var AUDIO_RECORDER_FOLDER:String="ZupaAudioRecorder"
 
     private var recorder: MediaRecorder? = null
     private var currentFormat: Int = 0
     private var output_formats: Int = MediaRecorder.OutputFormat.OGG
-    private var file_exts: String = AUDIO_RECORDER_FILE_EXT_OGG
+    private var file_exts: String = AUDIO_RECORDER_FILE_EXT_OGG*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +41,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener 
 
         btnSOS = findViewById(R.id.btnSOS)
         btnSOS.setOnTouchListener(this)
-    }
 
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        return super.onTouchEvent(event)
+        formButton = findViewById(R.id.btn_form)
+        formButton.setOnClickListener(this)
+
+        historyButton = findViewById(R.id.btn_history)
+        historyButton.setOnClickListener(this)
+
+        logoutButton = findViewById(R.id.btn_log_out)
+        logoutButton.setOnClickListener(this)
     }
 
 
@@ -49,41 +59,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener 
                 val anim = AnimationUtils.loadAnimation(this, R.anim.fade_in)
                 recordNotif.startAnimation(anim)
                 recordNotif.visibility = View.VISIBLE
-                startRecord()
+//                startRecord()
                 return true
             }
             MotionEvent.ACTION_UP -> {
                 val anim = AnimationUtils.loadAnimation(this, R.anim.fade_out)
                 recordNotif.startAnimation(anim)
                 recordNotif.visibility = View.GONE
-                stopRecord()
+//                stopRecord()
             }
         }
         return false
     }
 
     private fun stopRecord() {
-        recorder = MediaRecorder()
-        recorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
-        recorder!!.setOutputFormat(output_formats.get(currentFormat))
-        recorder!!.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
-        recorder.setOutputFile(getFilename())
-        recorder!!.setOnErrorListener(errorListener)
-        recorder!!.setOnInfoListener(infoListener)
-
-        try {
-            recorder!!.prepare()
-            recorder!!.start()
-        } catch (e: IllegalStateException) {
-            e.printStackTrace()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
     }
 
     private fun getFilename() {
-        
-
     }
 
     private fun startRecord() {
@@ -94,6 +86,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener 
         when(v.id){
             R.id.profile_pic->{
                 startActivity(Intent(this, ProfileActivity::class.java))
+            }
+            R.id.btn_form->{
+                startActivity(Intent(this, formActivity::class.java))
+            }
+            R.id.btn_history->{
+//                startActivity(Intent(this, formActivity::class.java))
+            }
+            R.id.btn_log_out->{
+                finish()
             }
         }
     }
