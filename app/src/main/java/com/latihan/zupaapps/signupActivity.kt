@@ -106,14 +106,14 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
         regNoHP = findViewById(R.id.text_input_signup_nohp)
 
         val currentNoHp:String = regNoHP.text.toString()
-        val lengthNoHp:Int = 12
+        val lengthNoHp:Int = 13
 
         if (currentNoHp.isEmpty()){
             etlNoHp.setError("No.Hp tidak boleh kosong")
             return false
         }
-        else if(currentNoHp.length <= lengthNoHp){
-            etlNoHp.setError("Panjang maksimal No.Hp adalah 12 angka")
+        else if(currentNoHp.length > lengthNoHp){
+            etlNoHp.setError("Panjang maksimal No.Hp adalah 13 angka")
             return false
         }
         else {
