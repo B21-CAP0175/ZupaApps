@@ -35,8 +35,8 @@
                     android:layout_below="@id/back_button_signup"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="12dp"
                     android:hint="@string/name"
+                    app:errorEnabled="true"
                     app:shapeAppearance="@style/Rounded">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -143,8 +143,6 @@
                     android:layout_marginEnd="30dp"
                     android:hint="@string/pass"
                     app:endIconMode="password_toggle"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="10"
                     app:errorEnabled="true"
                     app:shapeAppearance="@style/Rounded">
 

@@ -20,16 +20,23 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/back_button_editprofile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/left_arrow"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="19dp"/>
+
+            <ImageView
+                android:id="@+id/photoProfile"
                 android:layout_width="144dp"
                 android:layout_height="144dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="108dp"
                 android:layout_marginEnd="100dp"
-                app:srcCompat="@drawable/profile_picture" />
+                android:layout_below="@+id/back_button_editprofile"
+                android:src="@drawable/profile_picture" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/editProfile"
@@ -39,9 +46,8 @@
                 android:textColor="@color/black"
                 android:text="@string/change_picture"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
                 app:cornerRadius="13dp"
-                android:layout_below="@+id/imageView"
+                android:layout_below="@+id/photoProfile"
 
                 android:backgroundTint="@color/white"/>
 
@@ -59,8 +65,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
                     android:hint="@string/email"
+                    app:errorEnabled="true"
                     app:shapeAppearance="@style/Rounded">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -76,8 +82,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
                     android:hint="@string/no_hp"
+                    app:errorEnabled="true"
                     android:layout_below="@+id/NoIdTextField"
                     app:shapeAppearance="@style/Rounded">
 
@@ -85,7 +91,7 @@
                         android:id="@+id/text_input_editNoHP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
+                        android:inputType="number"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,8 +100,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
                     android:hint="@string/pass"
+                    app:errorEnabled="true"
                     android:layout_below="@+id/NoKKTextField"
                     app:endIconMode="password_toggle"
                     app:shapeAppearance="@style/Rounded">
@@ -113,8 +119,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
                     android:hint="@string/repass"
+                    app:errorEnabled="true"
                     app:endIconMode="password_toggle"
                     android:layout_below="@+id/NoHandphone"
                     app:shapeAppearance="@style/Rounded">
@@ -130,7 +136,7 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_login"
+                android:id="@+id/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/TextFieldRow"

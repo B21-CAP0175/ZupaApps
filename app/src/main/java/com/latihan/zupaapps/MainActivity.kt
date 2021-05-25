@@ -9,6 +9,7 @@ import android.view.View.OnTouchListener
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import java.text.Normalizer
 import kotlin.math.log
@@ -91,10 +92,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener 
                 startActivity(Intent(this, formActivity::class.java))
             }
             R.id.btn_history->{
-//                startActivity(Intent(this, formActivity::class.java))
+                startActivity(Intent(this, HistoryActivity::class.java))
             }
             R.id.btn_log_out->{
-                finish()
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Log Out")
+                builder.setMessage("Anda yakin ingin keluar?")
+                builder.setPositiveButton("Yes"){dialogInterface, which ->
+                    finish()
+                }
+                builder.setNegativeButton("No"){dialogInterface, which ->
+                    return@setNegativeButton
+                }
+                val alertDialog:AlertDialog = builder.create()
+                alertDialog.show()
             }
         }
     }
