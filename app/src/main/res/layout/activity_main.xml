@@ -131,13 +131,13 @@
                 app:srcCompat="@drawable/location_icon"/>
 
             <TextView
-                android:id="@+id/location"
+                android:id="@+id/textView_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/jl_antasari_jakarta_selatan"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <TextView

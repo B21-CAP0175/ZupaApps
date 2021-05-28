@@ -1,18 +1,28 @@
 package com.latihan.zupaapps
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.location.*
 import android.media.MediaRecorder
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import java.text.Normalizer
-import kotlin.math.log
+import androidx.core.app.ActivityCompat
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import java.util.*
+import java.util.jar.Manifest
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener {
     private lateinit var profilePic: ImageView
@@ -22,13 +32,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener 
     private lateinit var historyButton: Button
     private lateinit var logoutButton: Button
 
-/*    private var AUDIO_RECORDER_FILE_EXT_OGG:String=".ogg"
-    private var AUDIO_RECORDER_FOLDER:String="ZupaAudioRecorder"
+    private lateinit var textLocation: TextView
 
-    private var recorder: MediaRecorder? = null
-    private var currentFormat: Int = 0
-    private var output_formats: Int = MediaRecorder.OutputFormat.OGG
-    private var file_exts: String = AUDIO_RECORDER_FILE_EXT_OGG*/
+    private var locationManager: LocationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +57,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener 
 
         logoutButton = findViewById(R.id.btn_log_out)
         logoutButton.setOnClickListener(this)
+
+        textLocation = findViewById(R.id.textView_location)
+        textLocation.setOnClickListener(this)
+
+        locationManager = getSystemService(LOCATION_SERVICE) as LocationManager?
+
     }
 
 
@@ -83,10 +95,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, OnTouchListener 
         TODO("Not yet implemented")
     }
 
+    private fun locationListener() = object :LocationListener{
+        override fun onLocationChanged(location: Location) {
+            var gc = Geocoder(this@MainActivity,Locale.getDefault())
+            var addresses = gc.getFromLocation(location.latitude,location.longitude,1)
+            var address = addresses.get(0).getAddressLine(0)
+            textLocation.text = (""+address)
+            Toast.makeText(this@MainActivity, "Location Updated", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
     override fun onClick(v: View){
         when(v.id){
             R.id.profile_pic->{
                 startActivity(Intent(this, ProfileActivity::class.java))
+            }
+            R.id.textView_location->{
+                try {
+                 locationManager?.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0L,0f,locationListener())
+                } catch (ex: SecurityException){
+                    Log.d("myTag","Security Exception, no location available")
+                }
             }
             R.id.btn_form->{
                 startActivity(Intent(this, formActivity::class.java))
