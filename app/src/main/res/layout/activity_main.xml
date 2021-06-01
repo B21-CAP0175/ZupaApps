@@ -9,14 +9,103 @@
     android:orientation="vertical"
     android:background="@drawable/background_main_menu">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_sos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="135dp"
+        app:cardCornerRadius="31dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/title_bicara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Bicara Sekarang"
+                android:textSize="35sp"/>
+
+            <TextView
+                android:id="@+id/hasil_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:layout_below="@+id/title_bicara"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="bottom|center_horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_form"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/contract"
+                    android:layout_marginEnd="35dp"
+                    android:layout_centerVertical="true"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSOS"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/sos_button"
+                    android:elevation="5dp"
+                    android:text="SOS"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    android:textSize="31sp"
+                    app:cornerRadius="150dp"
+                    android:layout_toEndOf="@id/btn_form"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_history"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/history"
+                    android:layout_toEndOf="@id/btnSOS"
+                    android:layout_marginStart="35dp"
+                    android:layout_centerVertical="true"/>
+
+            </RelativeLayout>
+    </RelativeLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:paddingLeft="25dp"
         android:paddingRight="25dp">
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_log_out"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/log_out_putih"
+            app:backgroundTint="@color/white"
+            android:layout_marginTop="15dp"
+            android:layout_alignParentEnd="true"/>
+
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/profile_pic"
             android:layout_width="144dp"
             android:layout_height="144dp"
             android:layout_alignParentStart="true"
@@ -34,7 +123,7 @@
             android:layout_height="wrap_content"
             android:text="@string/hello"
             android:textSize="22sp"
-            android:layout_below="@+id/imageView"
+            android:layout_below="@+id/profile_pic"
             android:fontFamily="sans-serif-light"
             android:paddingTop="18dp"
             android:textStyle="bold"/>
@@ -51,6 +140,7 @@
             android:textStyle="bold"/>
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:context=".MainActivity"
@@ -64,13 +154,13 @@
                 app:srcCompat="@drawable/location_icon"/>
 
             <TextView
-                android:id="@+id/location"
+                android:id="@+id/textView_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
                 android:text="@string/jl_antasari_jakarta_selatan"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <TextView
@@ -98,49 +188,7 @@
             android:layout_marginEnd="60dp"
             android:gravity="center"/>
 
-        <TextView
-            android:id="@+id/showmoretips"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/show_more_tips"
-            android:fontFamily="sans-serif-condensed-light"
-            android:layout_below="@+id/zupatips"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:gravity="center"
-            android:layout_marginTop="30dp"/>
-
     </RelativeLayout>
-
-    <com.google.android.material.bottomappbar.BottomAppBar
-        android:id="@+id/bottomAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-        app:fabCradleRoundedCornerRadius="20dp"
-        app:fabCradleMargin="5dp"
-        app:fabCradleVerticalOffset="10dp"
-        android:backgroundTint="@color/white">
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:menu="@menu/bottom_app_bar"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:background="@android:color/transparent"/>
-
-    </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/sos_button"
-        app:layout_anchor="@id/bottomAppBar"
-        android:backgroundTint="@color/sos_button"
-        android:contentDescription="SOS" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

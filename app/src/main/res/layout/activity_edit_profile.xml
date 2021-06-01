@@ -20,28 +20,35 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/back_button_editprofile"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/left_arrow"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="19dp"/>
+
+            <ImageView
+                android:id="@+id/photoProfile"
                 android:layout_width="144dp"
                 android:layout_height="144dp"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="108dp"
                 android:layout_marginEnd="100dp"
-                app:srcCompat="@drawable/profile_picture" />
+                android:layout_below="@+id/back_button_editprofile"
+                android:src="@drawable/profile_picture" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/editProfile"
-                android:layout_width="120dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="@color/black"
                 android:text="@string/change_picture"
-                android:textSize="7sp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:layout_below="@+id/imageView"
+                app:cornerRadius="13dp"
+                android:layout_below="@+id/photoProfile"
+
                 android:backgroundTint="@color/white"/>
 
             <LinearLayout
@@ -54,16 +61,16 @@
                 android:layout_marginEnd="20dp">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NoIdTextField"
+                    android:id="@+id/editEmail"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/no_id"
+                    android:hint="@string/email"
+                    app:errorEnabled="true"
                     app:shapeAppearance="@style/Rounded">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_NoId"
+                        android:id="@+id/text_input_editEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"/>
@@ -71,53 +78,55 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NoKKTextField"
+                    android:id="@+id/editNomorHP"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/no_kk"
+                    android:hint="@string/no_hp"
+                    app:errorEnabled="true"
                     android:layout_below="@+id/NoIdTextField"
                     app:shapeAppearance="@style/Rounded">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_NoKK"
+                        android:id="@+id/text_input_editNoHP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
+                        android:inputType="number"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NoHandphone"
+                    android:id="@+id/editPass"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/no_hp"
+                    android:hint="@string/pass"
+                    app:errorEnabled="true"
                     android:layout_below="@+id/NoKKTextField"
+                    app:endIconMode="password_toggle"
                     app:shapeAppearance="@style/Rounded">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_NoHp"
+                        android:id="@+id/text_input_editPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"/>
+                        android:inputType="text"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/Email_Text_field"
+                    android:id="@+id/editRepass"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    android:hint="@string/email"
+                    android:hint="@string/repass"
+                    app:errorEnabled="true"
+                    app:endIconMode="password_toggle"
                     android:layout_below="@+id/NoHandphone"
                     app:shapeAppearance="@style/Rounded">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/text_input_Email"
+                        android:id="@+id/text_input_editRepass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"/>
@@ -127,11 +136,12 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_login"
+                android:id="@+id/button_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/TextFieldRow"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:text="@string/save"
                 app:cornerRadius="13dp"
                 android:textStyle="normal"/>

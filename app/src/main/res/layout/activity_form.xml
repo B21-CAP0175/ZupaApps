@@ -44,7 +44,7 @@
                 android:layout_below="@id/form_title"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="12dp"
+                app:errorEnabled="true"
                 android:hint="@string/lokasi"
                 app:shapeAppearance="@style/Rounded">
 
@@ -64,7 +64,7 @@
                 android:layout_below="@id/form_lokasi"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="12dp"
+                app:errorEnabled="true"
                 android:hint="@string/tanggal_kejadian"
                 app:endIconMode="custom"
                 app:endIconDrawable="@drawable/ic_baseline_calendar_today_24"
@@ -74,7 +74,7 @@
                     android:id="@+id/text_input_form_tanggal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"/>
+                    android:inputType="none"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,7 +86,7 @@
                 android:layout_below="@id/form_tanggal"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="12dp"
+                app:errorEnabled="true"
                 android:hint="@string/waktu"
                 app:endIconMode="custom"
                 app:endIconDrawable="@drawable/ic_baseline_access_time_24"
@@ -96,7 +96,7 @@
                     android:id="@+id/text_input_form_waktu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"/>
+                    android:inputType="none"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="12dp"
+                app:errorEnabled="true"
                 android:layout_below="@id/form_waktu"
                 app:shapeAppearance="@style/Rounded"
                 android:hint="@string/tipe_kejahatan">
@@ -128,7 +128,7 @@
                 android:layout_below="@id/form_kejadian"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="12dp"
+                app:errorEnabled="true"
                 android:hint="@string/detai_jekadian"
 
                 app:shapeAppearance="@style/Rounded">
@@ -138,9 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
-                    android:lines="8"
-                    android:minLines="6"
-                    android:maxLines="15"
+                    android:lines="4"
                     android:gravity="top|left"/>
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -176,7 +174,6 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/button_form_upload"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
                 android:text="send"
                 app:cornerRadius="13dp"
                 android:textStyle="normal"/>
