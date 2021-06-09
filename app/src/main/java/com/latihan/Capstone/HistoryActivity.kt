@@ -1,6 +1,5 @@
-package com.latihan.zupaapps
+package com.latihan.Capstone
 
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View

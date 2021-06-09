@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.latihan.zupaapps">
+    package="com.latihan.Capstone">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -13,20 +15,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ZupaApps">
-        <activity android:name=".HistoryActivity"></activity>
-        <activity android:name=".EditProfileActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.latihan.Capstone.HistoryActivity" />
+        <activity android:name="com.latihan.Capstone.EditProfileActivity" />
+        <activity android:name="com.latihan.Capstone.ProfileActivity" />
+        <activity android:name="com.latihan.Capstone.MainActivity">
+        </activity>
+        <activity android:name="com.latihan.Capstone.formActivity">
+        </activity>
+        <activity android:name="com.latihan.Capstone.signupActivity" />
+        <activity android:name="com.latihan.Capstone.loginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".formActivity">
-        </activity>
-        <activity android:name=".signupActivity" />
-        <activity android:name=".loginActivity">
 
         </activity>
     </application>

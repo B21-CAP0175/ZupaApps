@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "389327854186",
+    "project_id": "zupaappstest",
+    "storage_bucket": "zupaappstest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389327854186:android:9826b7406c87dbdf2bc813",
+        "android_client_info": {
+          "package_name": "com.Latihan.Capstone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389327854186-5furcsekh6ir48jqq43oei6t4a9milnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq0-Sj15HQFa7RDSC9oYqY_ZwjtxLRF1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389327854186-5furcsekh6ir48jqq43oei6t4a9milnp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389327854186:android:679f61ab1ab7f7122bc813",
+        "android_client_info": {
+          "package_name": "com.latihan.Capstone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389327854186-5furcsekh6ir48jqq43oei6t4a9milnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq0-Sj15HQFa7RDSC9oYqY_ZwjtxLRF1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389327854186-5furcsekh6ir48jqq43oei6t4a9milnp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

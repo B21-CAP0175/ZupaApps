@@ -1,8 +1,7 @@
-package com.latihan.zupaapps
+package com.latihan.Capstone
 
-import android.app.DatePickerDialog
+import android.content.ContentValues
 import android.os.Bundle
-import android.text.format.DateFormat.is24HourFormat
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +10,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
-import org.w3c.dom.Text
-import java.time.format.DateTimeFormatter
+import com.latihan.Capstone.Database.DataClass.User
+import com.latihan.Capstone.Database.FormDataBase.FormDataHelper
+import com.latihan.Capstone.Database.FormDataBase.FormEntity
+import com.latihan.Capstone.Database.UserDataBase.DataUserEntity
+import com.latihan.Capstone.Database.UserDataBase.UserDataHelper
 import java.util.*
 
 class formActivity: AppCompatActivity(), View.OnClickListener{
@@ -34,6 +36,15 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
     private lateinit var btnSend: Button
     private lateinit var bckButton: ImageView
 
+    //DataBase
+    private lateinit var getHelper: FormDataHelper
+
+    companion object {
+        const val EXTRA_USER = "extra_user"
+    }
+
+    lateinit var user : User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_form)
@@ -54,8 +65,14 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
         bckButton = findViewById(R.id.back_button_form)
         bckButton.setOnClickListener(this)
 
-        btnUpload = findViewById(R.id.button_form_upload)
-        btnUpload.setOnClickListener(this)
+        user = intent.getParcelableExtra<User>(MainActivity.EXTRA_USER) as User
+
+/*        btnUpload = findViewById(R.id.button_form_upload)
+        btnUpload.setOnClickListener(this)*/
+
+        //Database
+        getHelper = FormDataHelper.getInstance(applicationContext)
+        getHelper.open()
 
         //DATE PICKER TANGGAL KEJADIAN
         val datePicker = MaterialDatePicker.Builder.datePicker()
@@ -113,7 +130,6 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
             lLokasiKejadian.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateTanggal():Boolean{
@@ -127,7 +143,6 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
             lTanggalKejadian.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateWaktu():Boolean{
@@ -141,7 +156,6 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
             lWaktuKejadian.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateTipe():Boolean{
@@ -157,7 +171,6 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
             lTipeKejadian.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateDetail():Boolean{
@@ -174,7 +187,6 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
             lDetailKejadian.setError(null)
             return true
         }
-        return true
     }
 
 
@@ -187,7 +199,24 @@ class formActivity: AppCompatActivity(), View.OnClickListener{
                 if(!validateLokasi() or !validateTanggal() or !validateWaktu() or !validateTipe() or !validateDetail())
                     return
                 else{
+                    val dataUsername = user.username.toString()
+                    val dataTanggal =  findViewById<TextInputEditText>(R.id.text_input_form_tanggal).text.toString().trim()
+                    val dataLocation = findViewById<TextInputEditText>(R.id.text_input_form_lokasi).text.toString().trim()
+                    val dataWaktu = findViewById<TextInputEditText>(R.id.text_input_form_waktu).text.toString().trim()
+                    val dataTipe = findViewById<TextInputEditText>(R.id.text_input_form_kejadian).text.toString().trim()
+                    val dataDetail = findViewById<TextInputEditText>(R.id.text_input_form_detail).text.toString().trim()
+
+                    val values = ContentValues()
+                    values.put(FormEntity.UserColumns.USERNAME, dataUsername)
+                    values.put(FormEntity.UserColumns.DATE, dataTanggal)
+                    values.put(FormEntity.UserColumns.LOCATION, dataLocation)
+                    values.put(FormEntity.UserColumns.TIME, dataWaktu)
+                    values.put(FormEntity.UserColumns.TYPE, dataTipe)
+                    values.put(FormEntity.UserColumns.DETAIL, dataDetail)
+                    getHelper.insert(values)
                     Toast.makeText(this@formActivity, "form berhasil dikirim", Toast.LENGTH_LONG).show()
+                    getHelper.close()
+                    finish()
                 }
             }
         }

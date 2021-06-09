@@ -1,12 +1,16 @@
-package com.latihan.zupaapps
+package com.latihan.Capstone
 
+import android.content.ContentValues
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.latihan.Capstone.Database.UserDataBase.DataUserEntity
+import com.latihan.Capstone.Database.UserDataBase.UserDataHelper
 
 class signupActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var mBackBtn :ImageView
@@ -28,6 +32,8 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var etlPass: TextInputLayout
     private lateinit var etlRePass: TextInputLayout
 
+    //DataBase
+    private lateinit var getHelper: UserDataHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +44,10 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
 
         mSignupBtn = findViewById(R.id.button_signup)
         mSignupBtn.setOnClickListener(this)
+
+        //Database
+        getHelper = UserDataHelper.getInstance(applicationContext)
+        getHelper.open()
     }
 
     private fun validateNama(): Boolean{
@@ -54,7 +64,6 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             etlNama.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateNIK(): Boolean {
@@ -76,7 +85,6 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             etlNIK.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateNoKK(): Boolean {
@@ -98,7 +106,6 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             etlNoKK.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateNoHP(): Boolean{
@@ -120,7 +127,6 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             etlNoHp.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateEmail(): Boolean{
@@ -141,7 +147,6 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             etlEmail.setError(null)
             return true
         }
-        return true
     }
 
     private fun validatePass(): Boolean{
@@ -162,7 +167,6 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             etlPass.setError(null)
             return true
         }
-        return true
     }
 
     private fun validateRePass(): Boolean{
@@ -185,7 +189,6 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
             etlRePass.setError(null)
             return true
         }
-        return true
     }
 
     override fun onClick(v: View){
@@ -198,6 +201,27 @@ class signupActivity : AppCompatActivity(), View.OnClickListener {
                     return
                 }
                 else{
+                    val dataUsername = findViewById<TextInputEditText>(R.id.text_input_signup_email).text.toString().trim()
+                    val dataPassword =  findViewById<TextInputEditText>(R.id.text_input_signup_pass).text.toString().trim()
+                    val dataLocation = "Click here to update your location"
+                    val dataName = findViewById<TextInputEditText>(R.id.text_input_signup_nama).text.toString().trim()
+                    val dataNIK = findViewById<TextInputEditText>(R.id.text_input_signup_nik).text.toString().trim()
+                    val dataNKK = findViewById<TextInputEditText>(R.id.text_input_signup_nkk).text.toString().trim()
+                    val dataNoHP = findViewById<TextInputEditText>(R.id.text_input_signup_nohp).text.toString().trim()
+
+                    val values = ContentValues()
+                    values.put(DataUserEntity.UserColumns.USERNAME, dataUsername)
+                    values.put(DataUserEntity.UserColumns.PASSWORD, dataPassword)
+                    values.put(DataUserEntity.UserColumns.LOCATION, dataLocation)
+                    values.put(DataUserEntity.UserColumns.NAME, dataName)
+                    values.put(DataUserEntity.UserColumns.NIK, dataNIK)
+                    values.put(DataUserEntity.UserColumns.NKK, dataNKK)
+                    values.put(DataUserEntity.UserColumns.NOHP, dataNoHP)
+                    values.put(DataUserEntity.UserColumns.COUNTER, "0")
+                    getHelper.insert(values)
+
+                    Toast.makeText(this, getString(R.string.addUserSuccess), Toast.LENGTH_SHORT).show()
+                    getHelper.close()
                     finish()
                 }
             }

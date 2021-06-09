@@ -38,6 +38,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:layout_below="@+id/title_bicara"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="100dp"
+                android:text="Anda Menglami Kejahatan :"
+                android:textSize="20sp"
+                android:layout_below="@+id/title_bicara"/>
+
+            <TextView
+                android:id="@+id/hasil_klassifikasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="160dp"
+                android:gravity="center"
+                android:text="HASIL"
+                android:textSize="40sp"
+                android:layout_below="@+id/title_bicara"/>
+
+            <TextView
+                android:id="@+id/textBantuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:layout_marginTop="240dp"
+                android:text="Bantuan akan segera datang"
                 android:textSize="20sp"
                 android:layout_below="@+id/title_bicara"/>
 
@@ -71,9 +104,9 @@
                     android:layout_height="100dp"
                     android:src="@drawable/sos_button"
                     android:elevation="5dp"
-                    android:text="SOS"
+                    android:text="@string/sos"
                     android:backgroundTint="@android:color/holo_red_dark"
-                    android:textSize="31sp"
+                    android:textSize="25sp"
                     app:cornerRadius="150dp"
                     android:layout_toEndOf="@id/btn_form"/>
 

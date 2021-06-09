@@ -143,7 +143,7 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/bukti_kekerasan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,13 +166,14 @@
                 android:textColor="@color/pink"
                 android:text="upload"
                 app:cornerRadius="13dp"
-                android:textStyle="normal"/>
+                android:textStyle="normal"/>-->
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/button_form_upload"
+                android:layout_marginTop="160dp"
+                android:layout_below="@id/form_kejadian"
                 android:layout_centerHorizontal="true"
                 android:text="send"
                 app:cornerRadius="13dp"

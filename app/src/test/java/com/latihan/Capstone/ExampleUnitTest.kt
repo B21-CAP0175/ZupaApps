@@ -1,4 +1,4 @@
-package com.latihan.zupaapps
+package com.latihan.Capstone
 
 import org.junit.Test
 

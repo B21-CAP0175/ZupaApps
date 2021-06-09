@@ -1,0 +1,4 @@
+Domestik,
+Fisik,
+Seksual,
+Penguntitan

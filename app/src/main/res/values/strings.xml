@@ -46,4 +46,6 @@
     <string name="save">Save</string>
     <string name="log_in">Log in</string>
     <string name="buat_akun">Buat Akun</string>
+    <string name="addUserSuccess">Success</string>
+    <string name="sos">SOS</string>
 </resources>
